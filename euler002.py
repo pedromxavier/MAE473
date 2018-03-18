@@ -36,12 +36,12 @@ def main():
     bound  = int(4e+6);
     #{
     n = int(floor(log(bound*sqrt(5),phi))) + 1;
-    F = lambda n: int(floor((phi**n)/sqrt(5)));
+    F = lambda n: int(round((phi**n)/sqrt(5)));
     
-    if F(n)%2: 
-        if F(n-1)%2:
+    if F(n)%2: # if F(n) is odd
+        if F(n-1)%2: # if F(n-1) is also odd
             answer = (F(n)-1)/2;
-        else:
+        else: # if F(n-1) is even)
             answer = (F(n+1)-1)/2;
     else:
         answer = (F(n+2)-1)/2;
@@ -55,3 +55,5 @@ if __name__ == '__main__':
     run(main, problem);
 "<><><><><><><><><><><><>"
 #"""
+
+
